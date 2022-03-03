@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-6">
+    <%= form_with(model: @schedule) do |f| %>
+      <% if schedule.errors.any? %>
+        <div id="error_explanation" class="alert alert-warning">
+          <ul>
+            <% schedule.errors.full_messages.each do |error_msg| %>
+              <li><%= error_msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    
+      <div class="mb-3">
+      　<%= f.label :content, 'タスク: ' %>
+      　<%= f.text_field :content, class: 'form-control' %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :start_time, '開始時間: ' %>
+        <%= f.datetime_select :start_time, class: 'form-control' %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :end_time, '終了時間: ' %>
+        <%= f.datetime_select :end_time, class: 'form-control' %>
+      </div>
+      
+      <%= f.submit '更新' %>
+    <% end %>
+  </div>
+</div>

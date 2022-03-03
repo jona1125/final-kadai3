@@ -1,0 +1,25 @@
+<h1>詳細ページ</h1>
+
+<table class="table table-bordered">
+  <tr>
+    <th>id</th>
+    <td><%= @schedule.id %></td>
+  </tr>
+  <tr>
+    <th>タスク</th>
+    <td><%= @schedule.content %></td>
+  </tr>
+  <tr>
+    <th>開始時間</th>
+    <td><%= @schedule.start_time.strftime("%Y/%m/%d %H:%M") %></td>
+  </tr>
+  <tr>
+    <th>終了時間</th>
+    <td><%= @schedule.end_time.strftime("%Y/%m/%d %H:%M") %></td>
+  </tr>
+</table>
+
+<%= link_to 'このタスクを編集する', edit_schedule_path(@schedule), class: 'btn btn-light' %>
+<%= link_to 'このタスクを削除する', @schedule, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>
+
+<%= link_to '一覧に戻る', schedules_path, class: 'btn btn-primary'%>
